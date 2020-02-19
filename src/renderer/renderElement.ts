@@ -37,7 +37,10 @@ function generateElementCanvas(element: ExcalidrawElement, zoom: number) {
       element.y > y1
         ? Math.floor(distance(element.y, y1)) * window.devicePixelRatio
         : 0;
-    context.translate(element.canvasOffsetX, element.canvasOffsetY);
+    context.translate(
+      element.canvasOffsetX * zoom,
+      element.canvasOffsetY * zoom,
+    );
   } else {
     canvas.width =
       element.width * window.devicePixelRatio * zoom + CANVAS_PADDING * 2;
